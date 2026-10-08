@@ -1,0 +1,220 @@
+/* Knob – Light Mode for YouTube Music — popup.css */
+
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+body {
+  margin: 0;
+  font-family: system-ui, -moz-field, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  background: transparent;
+  color: #1a1a1a;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Popup layout */
+.popup {
+  width: 300px;
+  padding: 16px;
+  background: #f4f4f4;
+}
+
+/* 3-position rotary knob */
+.knob {
+  --angle: 0deg;
+  position: relative;
+  width: 154px;
+  margin: 30px auto 0;
+  user-select: none;
+}
+
+.knob:has(input[value="light"]:checked) {
+  --angle: 0deg;
+}
+
+.knob:has(input[value="system"]:checked) {
+  --angle: 45deg;
+}
+
+.knob:has(input[value="off"]:checked) {
+  --angle: 90deg;
+}
+
+/* Dial */
+.knob__dial {
+  position: relative;
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #f4f4f4;
+  box-shadow:
+    -12px -12px 22px #ffffff,
+    14px 18px 28px rgba(0, 0, 0, 0.15),
+    4px 6px 10px rgba(0, 0, 0, 0.08);
+}
+
+.knob__dial::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  filter: blur(14px);
+  z-index: -1;
+}
+
+.knob__surface {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff 0%, #f2f2f2 45%, #e1e1e1 100%);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 1),
+    inset 0 -5px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Indicator dot */
+.dot-rotator {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transform: rotate(var(--angle));
+  transition: transform 0.22s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.dot {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 13px;
+  height: 50px;
+  margin-left: -6.5px;
+  border-radius: 999px;
+  background: linear-gradient(0deg, #d0450f 0%, #ea541e 60%, #f27350 100%);
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.4),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.28),
+    0 2px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* Labels */
+.knob__label {
+  position: absolute;
+  z-index: 1;
+  padding: 6px 4px;
+  margin: -6px -4px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 200ms linear;
+}
+
+.knob__label:hover {
+  color: #000000;
+}
+
+.knob__label--on {
+  left: 65px;
+  top: -27px;
+}
+
+.knob__label--system {
+  left: 145px;
+  top: 0px;
+}
+
+.knob__label--off {
+  left: 175px;
+  top: 72px;
+}
+
+.knob:has(input[value="light"]:checked) .knob__label--on,
+.knob:has(input[value="system"]:checked) .knob__label--system,
+.knob:has(input[value="off"]:checked) .knob__label--off {
+  color: #ea541e;
+}
+
+/* Caption */
+.knob__caption {
+  margin: 20px 0 0;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+/* Controls & Radios */
+.knob__options {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.knob__option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+}
+
+/* Focus styles */
+.knob:has(input:focus-visible) .knob__dial {
+  outline: 2px solid rgba(72, 72, 72, 0.55);
+  outline-offset: 3px;
+}
+
+.knob[data-pointer]:has(input:focus-visible) .knob__dial {
+  outline: none;
+}
+
+/* Status container */
+.status {
+  margin: 10px 0 0;
+  font-size: 11px;
+  color: #484848;
+  text-align: center;
+}
+
+.status:empty {
+  display: none;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .dot-rotator {
+    transition: none;
+  }
+}

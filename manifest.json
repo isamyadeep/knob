@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Knob – Light Mode for YouTube Music",
+  "version": "1.1.0",
+  "description": "Adds a clean, custom light theme to YouTube Music with tactile On, System, and Off controls.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Knob – Light Mode for YouTube Music",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://music.youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://music.youtube.com/*"
+      ],
+      "js": [
+        "content/theme.js"
+      ],
+      "css": [
+        "content/theme.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "knob@samyadeep.com",
+      "strict_min_version": "115.0"
+    }
+  }
+}
