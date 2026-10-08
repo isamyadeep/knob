@@ -1,4 +1,4 @@
-name: Validate, package, and release
+name: Validate and release
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
   contents: write # Required to create GitHub Releases
 
 jobs:
-  check-and-package:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -46,26 +46,41 @@ jobs:
             console.log('All ' + files.length + ' referenced files present');
           "
 
+  release:
+    needs: validate
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve package name
+        id: pkg
+        run: |
+          set -euo pipefail
+          VERSION_NAME=$(node -p "require('./manifest.json').version_name")
+          if [ "$GITHUB_REF_NAME" != "v$VERSION_NAME" ]; then
+            echo "::error::Tag '$GITHUB_REF_NAME' does not match manifest version_name '$VERSION_NAME'."
+            echo "::error::Tag as 'v$VERSION_NAME', or set version_name in manifest.json to '${GITHUB_REF_NAME#v}'."
+            exit 1
+          fi
+          echo "package=knob-${VERSION_NAME}.zip" >> "$GITHUB_OUTPUT"
+
       - name: Build release zip
         run: |
-          VERSION=$(node -p "require('./manifest.json').version")
-          zip -r "knob-${VERSION}.zip" \
+          zip -r "${{ steps.pkg.outputs.package }}" \
             manifest.json content popup icons \
             -x "*.DS_Store" -x "__MACOSX/*"
-          echo "Built knob-${VERSION}.zip"
 
       - name: Upload package artifact
         uses: actions/upload-artifact@v4
         with:
           name: extension-package
-          path: "knob-*.zip"
+          path: ${{ steps.pkg.outputs.package }}
           if-no-files-found: error
 
-      # AUTOMATED RELEASE CREATION (Runs only when a tag is pushed)
       - name: Create GitHub Release
-        if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: knob-*.zip
-          prerelease: ${{ contains(github.ref, '-alpha') || contains(github.ref, '-beta') || contains(github.ref, '-rc') }}
+          files: ${{ steps.pkg.outputs.package }}
+          prerelease: false
           generate_release_notes: true
