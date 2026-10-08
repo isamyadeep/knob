@@ -4,8 +4,6 @@ A minimal browser extension that adds a clean, custom **light theme** to YouTube
 
 YouTube Music’s native *Appearance* setting only offers *Dark*. **Knob** introduces a dedicated tactile control to switch between **On**, **System**, and **Off**.
 
-Inspired by **Dieter Rams'** design principles and the 3-way knob created by [1042 Studio](https://www.1042.studio/) at [drams.framer.website](https://drams.framer.website/).
-
 No account needed, no tracking, no network requests, and zero analytics.
 
 Works on **Microsoft Edge**, **Firefox**, and **Google Chrome**.
@@ -109,4 +107,7 @@ Refer to the full text of the [GNU General Public License v3.0](https://www.gnu.
 ---
 
 *Crafted with assistance from [Claude Code](https://claude.ai).*
+
+Inspired by **Dieter Rams'** design principles and the 3-way knob created by [1042 Studio](https://www.1042.studio/) at [drams.framer.website](https://drams.framer.website/).
+
 *Disclaimer: Not affiliated with, endorsed by, or connected to Google LLC or YouTube.*
