@@ -10,6 +10,14 @@ Works on **Microsoft Edge**, **Firefox**, and **Google Chrome**.
 
 ---
 
+## Preview
+
+| Dark Mode (Off) | Light Mode (On) |
+| :---: | :---: |
+| [Dark Mode]<img width="1920" height="1200" alt="image_75" src="https://github.com/user-attachments/assets/33c4bc1f-4513-481f-a8f2-1cc7374594c9" /> | [Light Mode]<img width="1920" height="1200" alt="image_76" src="https://github.com/user-attachments/assets/aca8ee1e-af63-429a-9d6b-13b6a3a91c39" />
+
+---
+
 ## Installation
 
 ### Microsoft Edge
@@ -43,7 +51,7 @@ Click the extension icon in your toolbar to interact with the 3-position rotary 
 | Mode | Behavior |
 |---|---|
 | **On** | Forces light mode continuously, regardless of system theme settings. |
-| **System** | Dynamically follows your system preferences—native dark mode when your OS is dark, and light mode when your OS is light. |
+| **System** | Dynamically follows your system preferences — native dark mode when your OS is dark, and light mode when your OS is light. |
 | **Off** | Disables the extension completely. YouTube Music returns to its default behavior (Dark mode). |
 
 * Click the dial to advance sequentially (**On → System → Off → On**).
@@ -73,6 +81,7 @@ If you notice an unstyled surface, please [open an issue](../../issues/new) desc
 
 ## Project Structure
 
+```text
 ├── manifest.json         # WebExtension Manifest (MV3)
 ├── content/theme.js      # Theme script (Attribute switcher, observer, self-check)
 ├── content/theme.css     # Palette, light mode overrides, and fallback rules
@@ -80,7 +89,7 @@ If you notice an unstyled surface, please [open an issue](../../issues/new) desc
 ├── popup/popup.css       # Rotary knob styling and animations
 ├── popup/popup.js        # Knob interaction logic and storage syncing
 └── icons/                # Icons used for the extension
-
+```
 
 ---
 
