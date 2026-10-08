@@ -26,7 +26,7 @@ Install directly from the **Firefox Add-ons Marketplace** *(link coming soon upo
 
 Chrome users can install manually from a downloadable `.zip` or cloned repository:
 
-1. Download the latest release `.zip` from the Releases page or clone this repository.
+1. Download the latest `knob-<version>.zip` from the [Releases page](https://github.com/isamyadeep/knob/releases), or clone this repository.
 2. Unzip the archive into a permanent directory on your computer (e.g., `~/knob-extension`).
 3. Open `chrome://extensions` in the address bar.
 4. Enable **Developer mode** using the toggle switch in the top-right corner.
