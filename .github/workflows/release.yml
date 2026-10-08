@@ -1,0 +1,68 @@
+name: Validate and package
+
+# Runs on every push and pull request. Keeps the manifest honest and builds the
+# release zip so a maintainer can attach it to a GitHub Release without a
+# local toolchain.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate manifest.json
+        run: |
+          # Fails loudly if the JSON is malformed.
+          node -e "
+            const m = require('./manifest.json');
+            const required = ['manifest_version','name','version','description','icons','action','permissions','host_permissions','content_scripts'];
+            const missing = required.filter((k) => !(k in m));
+            if (missing.length) { console.error('Missing keys:', missing.join(', ')); process.exit(1); }
+            if (m.manifest_version !== 3) { console.error('Must be Manifest V3'); process.exit(1); }
+            if (!/^\d+(\.\d+){0,3}$/.test(m.version)) { console.error('Version must be numeric dots: got', m.version); process.exit(1); }
+            if (!m.description || m.description.length > 132) { console.error('Description must be 1-132 chars'); process.exit(1); }
+            console.log('manifest.json OK — v' + m.version);
+          "
+
+      - name: Check referenced files exist
+        run: |
+          node -e "
+            const fs = require('fs');
+            const m = require('./manifest.json');
+            const files = [
+              ...Object.values(m.icons),
+              ...Object.values(m.action.default_icon || {}),
+              m.action.default_popup,
+              ...m.content_scripts.flatMap((cs) => [...(cs.js||[]), ...(cs.css||[])]),
+            ];
+            const missing = files.filter((f) => !fs.existsSync(f));
+            if (missing.length) { console.error('Missing files:', missing.join(', ')); process.exit(1); }
+            console.log('All ' + files.length + ' referenced files present');
+          "
+
+      - name: Build release zip
+        run: |
+          VERSION=$(node -p "require('./manifest.json').version")
+          # manifest.json must sit at the zip root, so archive the contents,
+          # not the containing directory.
+          zip -r "ytmusic-light-mode-${VERSION}.zip" \
+            manifest.json content popup icons \
+            -x "*.DS_Store" -x "__MACOSX/*"
+          echo "Built ytmusic-light-mode-${VERSION}.zip"
+          unzip -l "ytmusic-light-mode-${VERSION}.zip"
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: extension-package
+          path: "ytmusic-light-mode-*.zip"
+          if-no-files-found: error

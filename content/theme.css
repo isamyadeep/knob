@@ -1,0 +1,412 @@
+/* Knob – Light Mode for YouTube Music — theme.css */
+
+/* 1. Light palette */
+html.ytm-theme-light:not(.style-scope),
+html.ytm-theme-force-light:not(.style-scope) {
+  color-scheme: light;
+
+  /* Canvas and raised surfaces */
+  --ytmusic-general-background-c: #f9fafb;
+  --yt-spec-base-background: #f9fafb;
+  --yt-spec-general-background-a: #f9fafb;
+  --ytmusic-general-background-a: #ffffff;
+  --yt-spec-general-background-b: #ffffff;
+  --yt-spec-brand-background-solid: #ffffff;
+  --ytmusic-player-bar-background: #ffffff;
+  --ytmusic-nav-bar-background: #ffffff;
+  --yt-spec-menu-background: #ffffff;
+
+  /* Chrome surfaces */
+  --ytmusic-search-background: #f3f4f6;
+  --ytmusic-search-bar-background-bauhaus: #f3f4f6;
+  --ytmusic-search-bar-border-bauhaus: #e5e7eb;
+  --ytmusic-explore-chip-background: #f3f4f6;
+  --ytmusic-badge-chip-background: #f3f4f6;
+  --ytmusic-badge-chip-inactive-hover: #e5e7eb;
+  --ytmusic-responsive-list-item-checked-background-bauhaus: #e5e7eb;
+  --ytmusic-navigation-button-outline-color: #d1d5db;
+  --ytmusic-search-suggestion-focus-active-background: #e5e7eb;
+  --ytmusic-multiselect-form-item-hover-background-color: #e5e7eb;
+  --ytmusic-dropdown-border-color: #e5e7eb;
+
+  /* Hover + dividers */
+  --ytmusic-hover-background-color: #f3f4f6;
+  --ytmusic-menu-item-hover-background-color: #f3f4f6;
+  --ytmusic-guide-hover: #f3f4f6;
+  --ytmusic-guide-divider: #e5e7eb;
+  --ytmusic-divider: #e5e7eb;
+
+  /* Text */
+  --ytmusic-text-primary: #111827;
+  --yt-spec-static-overlay-text-primary: #111827;
+  --yt-endpoint-color: #111827;
+  --yt-endpoint-hover-color: #111827;
+  --ytmusic-setting-item-toggle-active: #111827;
+  --ytmusic-overlay-text-secondary: #6b7280;
+  --yt-spec-static-overlay-text-secondary: #6b7280;
+  --yt-endpoint-visited-color: #6b7280;
+  --ytmusic-search-box-text-secondary: #9ca3af;
+  --ytmusic-search-box-text-primary: #111827;
+  --ytmusic-color-white1: #111827;
+
+  /* Grey ramp */
+  --ytmusic-color-grey1: #f3f4f6;
+  --ytmusic-color-grey2: #e5e7eb;
+  --ytmusic-color-grey3: #d1d5db;
+  --ytmusic-color-grey4: #9ca3af;
+  --ytmusic-color-grey5: #6b7280;
+
+  /* Inverted surfaces */
+  --yt-spec-inverted-background: #111827;
+  --yt-spec-text-primary-inverse: #ffffff;
+
+  /* Overlays & dialogs */
+  --ytmusic-overlay-background-medium: #ffffff;
+  --ytmusic-dialog-background-color: #ffffff;
+
+  /* Brand */
+  --ytmusic-brand-background-solid: #ff0000;
+  --yt-spec-brand-link-text: #cc0000;
+  --ytmusic-static-brand-red: #ff0000;
+
+  /* Polymer progress bar */
+  --paper-slider-active-color: #ff0000;
+  --paper-slider-secondary-color: #ff0000;
+  --paper-slider-container-color: #d1d5db;
+  --paper-slider-knob-color: #ff0000;
+  --paper-slider-knob-start-color: #ff0000;
+  --paper-slider-knob-start-border-color: #ff0000;
+  --paper-tabs-selection-bar-color: #ff0000;
+}
+
+/* 2. Dark palette */
+html.ytm-theme-dark:not(.style-scope),
+html.ytm-theme-force-dark:not(.style-scope) {
+  color-scheme: dark;
+}
+
+/* 3. Component rules (light) */
+html.ytm-theme-light #nav-bar-background,
+html.ytm-theme-light #player-bar-background,
+html.ytm-theme-light ytmusic-player-bar {
+  background-color: #ffffff;
+}
+
+html.ytm-theme-light body,
+html.ytm-theme-light ytmusic-app,
+html.ytm-theme-light ytmusic-app-layout {
+  background-color: #f9fafb;
+}
+
+html.ytm-theme-light ytmusic-app-layout #guide-wrapper,
+html.ytm-theme-light .ytmusic-app-layout #guide-wrapper {
+  background-color: #f9fafb;
+}
+
+html.ytm-theme-light #mini-guide-background {
+  background-color: #ffffff;
+}
+
+html.ytm-theme-light ytmusic-menu-renderer,
+html.ytm-theme-light ytmusic-multi-page-menu-renderer,
+html.ytm-theme-light tp-yt-paper-listbox,
+html.ytm-theme-light .ytmusic-popup-container tp-yt-paper-listbox {
+  background-color: #e5e7eb;
+}
+
+html.ytm-theme-light tp-yt-paper-listbox.ytmusic-menu-popup-renderer,
+html.ytm-theme-light .ytmusic-popup-container tp-yt-paper-listbox {
+  border-radius: 12px !important;
+}
+
+html.ytm-theme-light ytmusic-menu-renderer,
+html.ytm-theme-light ytmusic-multi-page-menu-renderer,
+html.ytm-theme-light tp-yt-paper-listbox,
+html.ytm-theme-light .ytmusic-popup-container {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-menu-renderer yt-formatted-string,
+html.ytm-theme-light ytmusic-multi-page-menu-renderer yt-formatted-string,
+html.ytm-theme-light tp-yt-paper-item,
+html.ytm-theme-light tp-yt-paper-item .ytpaper-item-body,
+html.ytm-theme-light ytmusic-popup-container yt-formatted-string {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-menu-renderer yt-icon,
+html.ytm-theme-light ytmusic-multi-page-menu-renderer yt-icon,
+html.ytm-theme-light ytmusic-multi-page-menu-renderer yt-icon.ytd-compact-link-renderer,
+html.ytm-theme-light tp-yt-paper-item yt-icon,
+html.ytm-theme-light ytmusic-popup-container yt-icon {
+  fill: #111827 !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-guide-renderer yt-formatted-string,
+html.ytm-theme-light ytmusic-guide-renderer a,
+html.ytm-theme-light ytmusic-guide-entry-renderer yt-icon,
+html.ytm-theme-light ytmusic-guide-renderer .ytmusic-guide-entry-renderer {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-guide-renderer yt-icon {
+  fill: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-player-queue,
+html.ytm-theme-light #queue ytmusic-player-queue {
+  background-color: #ffffff;
+}
+
+html.ytm-theme-light ytmusic-popup-container,
+html.ytm-theme-light ytmusic-dialog {
+  background-color: #ffffff;
+}
+
+html.ytm-theme-light * {
+  scrollbar-color: #d1d5db transparent;
+}
+
+html.ytm-theme-light ul.ytmusic-carousel,
+html.ytm-theme-light .scroller-on-hover {
+  scrollbar-color: transparent transparent;
+}
+
+html.ytm-theme-light ul.ytmusic-carousel:hover,
+html.ytm-theme-light .scroller-on-hover:hover {
+  scrollbar-color: #9ca3af transparent;
+}
+
+html.ytm-theme-light ytmusic-browse-response div#background,
+html.ytm-theme-light ytmusic-browse-response .background-gradient {
+  background: none !important;
+}
+
+html.ytm-theme-light ytmusic-fullbleed-thumbnail-renderer,
+html.ytm-theme-light ytmusic-browse-response div#background img,
+html.ytm-theme-light ytmusic-browse-response div#background picture {
+  display: none !important;
+}
+
+html.ytm-theme-light ytmusic-app-layout a.sign-in-link,
+html.ytm-theme-light ytmusic-app-layout .app-bar-button {
+  color: #111827;
+}
+
+/* 3b. Immersive-header text and icons (light) */
+html.ytm-theme-light ytmusic-chip-cloud-chip-renderer yt-formatted-string,
+html.ytm-theme-light ytmusic-carousel-shelf-renderer yt-formatted-string.title,
+html.ytm-theme-light ytmusic-carousel-shelf-renderer .title,
+html.ytm-theme-light ytmusic-item-section-renderer yt-formatted-string.title,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer a.yt-simple-endpoint.yt-formatted-string,
+html.ytm-theme-light ytmusic-two-row-item-renderer a.yt-simple-endpoint,
+html.ytm-theme-light ytmusic-browse-response .ytAttributedStringHost {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-chip-cloud-chip-renderer a.yt-simple-endpoint {
+  color: #111827 !important;
+  background-color: #f3f4f6 !important;
+}
+
+html.ytm-theme-light ytmusic-chip-cloud-chip-renderer a.yt-simple-endpoint:hover {
+  background-color: #e5e7eb !important;
+}
+
+html.ytm-theme-light ytmusic-chip-cloud-chip-renderer .gradient-box {
+  background: none !important;
+}
+
+html.ytm-theme-light ytmusic-search-box input,
+html.ytm-theme-light ytmusic-search-box input::placeholder {
+  color: #6b7280;
+}
+
+html.ytm-theme-light ytmusic-guide-entry-renderer yt-icon,
+html.ytm-theme-light ytmusic-search-box yt-icon,
+html.ytm-theme-light ytmusic-cast-button yt-icon,
+html.ytm-theme-light ytmusic-nav-bar yt-icon,
+html.ytm-theme-light ytmusic-app-layout .app-bar-button svg,
+html.ytm-theme-light ytmusic-app-layout ytmusic-logo-icon,
+html.ytm-theme-light ytmusic-app-layout .logo-icon {
+  fill: #111827 !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-logo img,
+html.ytm-theme-light img[src*="on_platform_logo"] {
+  opacity: 1;
+}
+
+html.ytm-theme-light ytmusic-search-box yt-icon,
+html.ytm-theme-light ytmusic-cast-button yt-icon {
+  fill: #9ca3af !important;
+}
+
+html.ytm-theme-light ytmusic-search-box {
+  background-color: #f3f4f6 !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px;
+}
+
+html.ytm-theme-light ytmusic-search-box input {
+  background: none !important;
+}
+
+html.ytm-theme-light ytmusic-search-box,
+html.ytm-theme-light ytmusic-search-suggestion,
+html.ytm-theme-light .ytmusic-search-suggestion,
+html.ytm-theme-light tp-yt-paper-listbox ytmusic-search-suggestion {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-search-box yt-icon,
+html.ytm-theme-light ytmusic-search-suggestion yt-icon,
+html.ytm-theme-light ytmusic-search-box tp-yt-paper-item,
+html.ytm-theme-light ytmusic-search-box tp-yt-paper-item yt-formatted-string {
+  fill: #111827 !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-guide-renderer .ytSpecButtonShapeNextTonal,
+html.ytm-theme-light ytmusic-guide-renderer button.ytSpecButtonShapeNextHost,
+html.ytm-theme-light ytmusic-guide-signin-promo-renderer .ytSpecButtonShapeNextTonal,
+html.ytm-theme-light ytmusic-guide-signin-promo-renderer button.ytSpecButtonShapeNextHost {
+  color: #111827 !important;
+  background-color: #f3f4f6 !important;
+}
+
+html.ytm-theme-light ytmusic-guide-renderer .ytSpecButtonShapeNextTonal path,
+html.ytm-theme-light ytmusic-guide-renderer .ytSpecButtonShapeNextTonal yt-icon,
+html.ytm-theme-light ytmusic-guide-signin-promo-renderer .ytSpecButtonShapeNextTonal path,
+html.ytm-theme-light ytmusic-guide-signin-promo-renderer .ytSpecButtonShapeNextTonal yt-icon {
+  fill: #111827 !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-guide-renderer .ytSpecButtonShapeNextTonal:hover,
+html.ytm-theme-light ytmusic-guide-renderer button.ytSpecButtonShapeNextHost:hover,
+html.ytm-theme-light ytmusic-guide-signin-promo-renderer .ytSpecButtonShapeNextTonal:hover,
+html.ytm-theme-light ytmusic-guide-signin-promo-renderer button.ytSpecButtonShapeNextHost:hover {
+  background-color: #e5e7eb !important;
+}
+
+html.ytm-theme-light ytmusic-two-row-item-renderer ytmusic-menu-renderer,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-menu-renderer,
+html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer {
+  background-color: #f3f4f6 !important;
+  border-radius: 50% !important;
+}
+
+html.ytm-theme-light ytmusic-two-row-item-renderer ytmusic-menu-renderer button,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-menu-renderer button,
+html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer button {
+  background-color: #f3f4f6 !important;
+  box-shadow: none !important;
+}
+
+html.ytm-theme-light ytmusic-two-row-item-renderer ytmusic-menu-renderer path,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-menu-renderer path,
+html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer path,
+html.ytm-theme-light ytmusic-two-row-item-renderer ytmusic-menu-renderer yt-icon,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-menu-renderer yt-icon,
+html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer yt-icon {
+  fill: #111827 !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-nav-bar .right-content yt-icon-button,
+html.ytm-theme-light ytmusic-nav-bar .right-content yt-icon-button button {
+  background-color: #f3f4f6 !important;
+  border-radius: 50% !important;
+}
+
+html.ytm-theme-light ytmusic-navigation-button-renderer button,
+html.ytm-theme-light button.ytmusic-navigation-button-renderer {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-navigation-button-renderer yt-formatted-string,
+html.ytm-theme-light ytmusic-navigation-button-renderer yt-icon,
+html.ytm-theme-light ytmusic-navigation-button-renderer svg {
+  color: #111827 !important;
+  fill: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-two-row-item-renderer a.image-wrapper,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer a.image-wrapper,
+html.ytm-theme-light ytmusic-playlist-panel-video-renderer a.image-wrapper {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+html.ytm-theme-light ytmusic-app-bar yt-button-shape,
+html.ytm-theme-light ytmusic-nav-bar yt-button-shape,
+html.ytm-theme-light a.sign-in-link {
+  background-color: #030712 !important;
+}
+
+html.ytm-theme-light ytmusic-app-bar yt-button-shape yt-formatted-string,
+html.ytm-theme-light ytmusic-app-bar yt-button-shape span,
+html.ytm-theme-light a.sign-in-link,
+html.ytm-theme-light a.sign-in-link span,
+html.ytm-theme-light a.sign-in-link yt-formatted-string {
+  color: #ffffff !important;
+}
+
+html.ytm-theme-light ytmusic-carousel-shelf-basic-header-renderer a.yt-simple-endpoint,
+html.ytm-theme-light ytmusic-carousel-shelf-renderer a.yt-simple-endpoint {
+  color: #111827 !important;
+}
+
+/* 4. Fallback layer */
+html.ytm-theme-force-light body,
+html.ytm-theme-force-light ytmusic-app,
+html.ytm-theme-force-light ytmusic-app-layout,
+html.ytm-theme-force-light #nav-bar-background,
+html.ytm-theme-force-light #player-bar-background,
+html.ytm-theme-force-light ytmusic-player-bar,
+html.ytm-theme-force-light #mini-guide-background,
+html.ytm-theme-force-light ytmusic-menu-renderer,
+html.ytm-theme-force-light tp-yt-paper-listbox,
+html.ytm-theme-force-light ytmusic-player-queue,
+html.ytm-theme-force-light ytmusic-popup-container,
+html.ytm-theme-force-light ytmusic-dialog {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-force-light .ytmusic-player-bar,
+html.ytm-theme-force-light #guide-wrapper {
+  background-color: #f9fafb !important;
+}
+
+html.ytm-theme-force-light ytmusic-title,
+html.ytm-theme-force-light .ytmusic-player-bar-title,
+html.ytm-theme-force-light a.ytmusic-simple-endpoint {
+  color: #111827 !important;
+}
+
+html.ytm-theme-force-dark body,
+html.ytm-theme-force-dark ytmusic-app,
+html.ytm-theme-force-dark ytmusic-app-layout {
+  background-color: #030712 !important;
+  color: #ffffff !important;
+}
+
+/* 5. Transitions */
+.ytm-paint-wipe-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  will-change: clip-path;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ytm-paint-wipe-overlay {
+    display: none !important;
+  }
+}

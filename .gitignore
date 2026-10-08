@@ -1,0 +1,23 @@
+# Release artifacts
+*.zip
+dist/
+.*-profile/
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs & Editor configurations
+.vscode/
+.idea/
+*.swp
+
+# Node dependencies (if local utilities are used)
+node_modules/
+npm-debug.log*
+
+# Personal AI workspace & local config
+CLAUDE.md
+.claude/
+.ignore
