@@ -54,15 +54,15 @@ jobs:
           VERSION=$(node -p "require('./manifest.json').version")
           # manifest.json must sit at the zip root, so archive the contents,
           # not the containing directory.
-          zip -r "ytmusic-light-mode-${VERSION}.zip" \
+          zip -r "knob-${VERSION}.zip" \
             manifest.json content popup icons \
             -x "*.DS_Store" -x "__MACOSX/*"
-          echo "Built ytmusic-light-mode-${VERSION}.zip"
-          unzip -l "ytmusic-light-mode-${VERSION}.zip"
+          echo "Built knob-${VERSION}.zip"
+          unzip -l "knob-${VERSION}.zip"
 
       - name: Upload package
         uses: actions/upload-artifact@v4
         with:
           name: extension-package
-          path: "ytmusic-light-mode-*.zip"
+          path: "knob-*.zip"
           if-no-files-found: error
