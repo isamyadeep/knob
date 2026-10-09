@@ -17,9 +17,7 @@ html.ytm-theme-force-light:not(.style-scope) {
   --yt-spec-menu-background: #ffffff;
 
   /* Chrome surfaces */
-  --ytmusic-search-background: #f3f4f6;
-  --ytmusic-search-bar-background-bauhaus: #f3f4f6;
-  --ytmusic-search-bar-border-bauhaus: #e5e7eb;
+  --ytmusic-search-background: rgba(0, 0, 0, 0.05);
   --ytmusic-explore-chip-background: #f3f4f6;
   --ytmusic-badge-chip-background: #f3f4f6;
   --ytmusic-badge-chip-inactive-hover: #e5e7eb;
@@ -116,7 +114,7 @@ html.ytm-theme-light .ytmusic-popup-container tp-yt-paper-listbox {
 
 html.ytm-theme-light tp-yt-paper-listbox.ytmusic-menu-popup-renderer,
 html.ytm-theme-light .ytmusic-popup-container tp-yt-paper-listbox {
-  border-radius: 12px !important;
+  border-radius: 4px !important;
 }
 
 html.ytm-theme-light ytmusic-menu-renderer,
@@ -154,6 +152,11 @@ html.ytm-theme-light ytmusic-guide-renderer yt-icon {
   fill: #111827 !important;
 }
 
+/* Separator above "Sign in" in the collapsed sidebar */
+html.ytm-theme-light ytmusic-guide-signin-promo-renderer {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
 html.ytm-theme-light ytmusic-player-queue,
 html.ytm-theme-light #queue ytmusic-player-queue {
   background-color: #ffffff;
@@ -178,12 +181,22 @@ html.ytm-theme-light .scroller-on-hover:hover {
   scrollbar-color: #9ca3af transparent;
 }
 
+/* Light wash over the banner photo, replacing YouTube's dark one */
+html.ytm-theme-light ytmusic-immersive-header-renderer .content-container-wrapper {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(255, 255, 255, 0) 100%
+  ) !important;
+}
+
+/* Home/Explore hero keeps no wash; scope stops it reaching the artist banner */
 html.ytm-theme-light ytmusic-browse-response div#background,
 html.ytm-theme-light ytmusic-browse-response .background-gradient {
   background: none !important;
 }
 
-html.ytm-theme-light ytmusic-fullbleed-thumbnail-renderer,
 html.ytm-theme-light ytmusic-browse-response div#background img,
 html.ytm-theme-light ytmusic-browse-response div#background picture {
   display: none !important;
@@ -203,6 +216,11 @@ html.ytm-theme-light ytmusic-responsive-list-item-renderer a.yt-simple-endpoint.
 html.ytm-theme-light ytmusic-two-row-item-renderer a.yt-simple-endpoint,
 html.ytm-theme-light ytmusic-browse-response .ytAttributedStringHost {
   color: #111827 !important;
+}
+
+/* After the rule above: same specificity, so the later one wins */
+html.ytm-theme-light ytmusic-subscribe-button-renderer .ytAttributedStringHost {
+  color: #c30027 !important;
 }
 
 html.ytm-theme-light ytmusic-chip-cloud-chip-renderer a.yt-simple-endpoint {
@@ -244,9 +262,23 @@ html.ytm-theme-light ytmusic-cast-button yt-icon {
   fill: #9ca3af !important;
 }
 
-html.ytm-theme-light ytmusic-search-box {
-  background-color: #f3f4f6 !important;
-  border: 1px solid #e5e7eb !important;
+html.ytm-theme-light ytmusic-search-box input::placeholder,
+html.ytm-theme-light ytmusic-search-box input {
+  color: #374151 !important;
+  opacity: 1 !important;
+}
+
+html.ytm-theme-light ytmusic-search-box,
+html.ytm-theme-light ytmusic-search-box div.search-box,
+html.ytm-theme-light ytmusic-search-box input {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+html.ytm-theme-light ytmusic-search-box,
+html.ytm-theme-light ytmusic-search-box div.search-box {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 8px;
 }
 
@@ -292,34 +324,52 @@ html.ytm-theme-light ytmusic-guide-signin-promo-renderer button.ytSpecButtonShap
   background-color: #e5e7eb !important;
 }
 
+/* Clear fill: a grey one here painted an oval behind every row's ⋮ */
 html.ytm-theme-light ytmusic-two-row-item-renderer ytmusic-menu-renderer,
 html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-menu-renderer,
-html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer {
-  background-color: #f3f4f6 !important;
-  border-radius: 50% !important;
-}
-
 html.ytm-theme-light ytmusic-two-row-item-renderer ytmusic-menu-renderer button,
 html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-menu-renderer button,
-html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer button {
-  background-color: #f3f4f6 !important;
+html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-menu-renderer {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Album cards keep YouTube's own light dots on the dark photo */
+html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer,
+html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer button,
+html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer yt-button-shape {
+  background-color: transparent !important;
+  border-radius: 50% !important;
   box-shadow: none !important;
 }
 
 html.ytm-theme-light ytmusic-two-row-item-renderer ytmusic-menu-renderer path,
 html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-menu-renderer path,
-html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer path,
 html.ytm-theme-light ytmusic-two-row-item-renderer ytmusic-menu-renderer yt-icon,
-html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-menu-renderer yt-icon,
-html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer yt-icon {
+html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-menu-renderer yt-icon {
   fill: #111827 !important;
   color: #111827 !important;
 }
 
-html.ytm-theme-light ytmusic-nav-bar .right-content yt-icon-button,
-html.ytm-theme-light ytmusic-nav-bar .right-content yt-icon-button button {
-  background-color: #f3f4f6 !important;
+/* After the rule above: album cards match both, so the later one wins */
+html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer path,
+html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer yt-icon {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Hover on button, not the host: it wraps every end button in the row */
+html.ytm-theme-light ytmusic-two-row-item-renderer ytmusic-menu-renderer button:hover,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-menu-renderer button:hover,
+html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-menu-renderer button:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
   border-radius: 50% !important;
+}
+
+html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer:hover,
+html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer:hover button {
+  background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 html.ytm-theme-light ytmusic-navigation-button-renderer button,
@@ -358,6 +408,220 @@ html.ytm-theme-light a.sign-in-link yt-formatted-string {
 
 html.ytm-theme-light ytmusic-carousel-shelf-basic-header-renderer a.yt-simple-endpoint,
 html.ytm-theme-light ytmusic-carousel-shelf-renderer a.yt-simple-endpoint {
+  color: #111827 !important;
+}
+
+/* 3c. Player screen: text and icons (light) */
+html.ytm-theme-light ytmusic-player-bar yt-formatted-string,
+html.ytm-theme-light ytmusic-player-bar .content-info-wrapper yt-formatted-string,
+html.ytm-theme-light ytmusic-player-bar .title,
+html.ytm-theme-light ytmusic-player-bar .subtitle {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-player-bar #time-info,
+html.ytm-theme-light ytmusic-player-bar .time-info,
+html.ytm-theme-light ytmusic-player-bar .current-time,
+html.ytm-theme-light ytmusic-player-bar .duration {
+  color: #6b7280 !important;
+}
+
+html.ytm-theme-light ytmusic-player-bar yt-icon,
+html.ytm-theme-light ytmusic-player-bar yt-icon-button,
+html.ytm-theme-light ytmusic-player-bar .middle-controls,
+html.ytm-theme-light ytmusic-player-bar .right-controls-buttons {
+  fill: #111827 !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-player yt-formatted-string,
+html.ytm-theme-light ytmusic-player .title,
+html.ytm-theme-light ytmusic-player .subtitle,
+html.ytm-theme-light ytmusic-player .info-bar {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-player yt-icon,
+html.ytm-theme-light ytmusic-player .player-controls,
+html.ytm-theme-light ytmusic-player .middle-controls {
+  fill: #111827 !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-player-queue ytmusic-responsive-list-item-renderer .title,
+html.ytm-theme-light ytmusic-player-queue ytmusic-responsive-list-item-renderer yt-formatted-string,
+html.ytm-theme-light ytmusic-player-queue .title {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-player-queue ytmusic-responsive-list-item-renderer .subtitle,
+html.ytm-theme-light ytmusic-player-queue .subtitle {
+  color: #6b7280 !important;
+}
+
+html.ytm-theme-light ytmusic-player-page tp-yt-paper-tabs {
+  --paper-tabs-text-color: #6b7280;
+  --paper-tabs-selected-text-color: #111827;
+}
+
+html.ytm-theme-light ytmusic-player-page .tab-text,
+html.ytm-theme-light ytmusic-player-page yt-basic-tabs,
+html.ytm-theme-light ytmusic-player-page tp-yt-paper-tabs {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-player-page tp-yt-paper-tab,
+html.ytm-theme-light ytmusic-player-page #tab-renderer,
+html.ytm-theme-light ytmusic-player-queue tp-yt-paper-tabs,
+html.ytm-theme-light ytmusic-player-queue tp-yt-paper-tab,
+html.ytm-theme-light ytmusic-player-queue .tab-text {
+  color: #111827 !important;
+}
+
+/* Queue titles were white-on-white */
+html.ytm-theme-light ytmusic-player-page yt-formatted-string,
+html.ytm-theme-light ytmusic-player-queue yt-formatted-string,
+html.ytm-theme-light ytmusic-player-page yt-icon,
+html.ytm-theme-light ytmusic-player-queue yt-icon {
+  color: #111827 !important;
+  fill: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-player-page .subtitle,
+html.ytm-theme-light ytmusic-player-queue .subtitle {
+  color: #6b7280 !important;
+}
+
+/* 3d. Icons that survive only via --yt-icon-fill, and stray button fills */
+html.ytm-theme-light ytmusic-player-bar yt-icon,
+html.ytm-theme-light ytmusic-player-bar tp-yt-paper-icon-button,
+html.ytm-theme-light ytmusic-player-bar yt-button-shape,
+html.ytm-theme-light ytmusic-player-bar button {
+  --yt-icon-fill: #111827 !important;
+  fill: #111827 !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-player-bar button,
+html.ytm-theme-light ytmusic-player-bar yt-icon-button,
+html.ytm-theme-light ytmusic-player-bar ytmusic-menu-renderer,
+html.ytm-theme-light ytmusic-player-bar .middle-controls-buttons,
+html.ytm-theme-light ytmusic-player-bar .right-controls-buttons {
+  background-color: transparent !important;
+}
+
+/* "Autoplay" is an <iron-label>, not a formatted string */
+html.ytm-theme-light ytmusic-player-queue iron-label,
+html.ytm-theme-light ytmusic-toggle-button-renderer iron-label,
+html.ytm-theme-light ytmusic-player-queue tp-yt-paper-switch,
+html.ytm-theme-light ytmusic-player-queue ytmusic-player-queue-header-renderer {
+  color: #111827 !important;
+}
+
+/* Comments: "Reply" and "N replies" are bare spans with no class */
+html.ytm-theme-light ytmusic-comment-thread-renderer span,
+html.ytm-theme-light ytmusic-comment-renderer span,
+html.ytm-theme-light ytmusic-comment-replies-renderer span,
+html.ytm-theme-light ytmusic-comment-replies-renderer yt-formatted-string,
+html.ytm-theme-light ytmusic-comment-thread-renderer tp-yt-paper-icon-button {
+  --yt-icon-fill: #6b7280 !important;
+  color: #6b7280 !important;
+  fill: #6b7280 !important;
+}
+
+html.ytm-theme-light ytmusic-comment-thread-renderer .comment-content,
+html.ytm-theme-light ytmusic-comment-renderer .comment-content,
+html.ytm-theme-light ytmusic-comment-thread-renderer #content,
+html.ytm-theme-light ytmusic-comment-renderer #content {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-comment-thread-renderer yt-icon,
+html.ytm-theme-light ytmusic-comment-renderer yt-icon,
+html.ytm-theme-light ytmusic-comment-replies-renderer yt-icon,
+html.ytm-theme-light ytmusic-comment-thread-renderer tp-yt-paper-icon-button {
+  --yt-icon-fill: #6b7280 !important;
+  fill: #6b7280 !important;
+  color: #6b7280 !important;
+}
+
+html.ytm-theme-light ytmusic-comments-header-renderer yt-icon,
+html.ytm-theme-light ytmusic-comments-header-renderer tp-yt-paper-icon-button {
+  --yt-icon-fill: #111827 !important;
+  fill: #111827 !important;
+  color: #111827 !important;
+}
+
+/* Active tab underline was invisible on white */
+html.ytm-theme-light ytmusic-player-page yt-basic-tabs .tab,
+html.ytm-theme-light ytmusic-player-page yt-basic-tabs .tab.activated,
+html.ytm-theme-light ytmusic-player-page yt-basic-tabs .tab.selected {
+  color: #6b7280 !important;
+}
+
+html.ytm-theme-light ytmusic-player-page yt-basic-tabs .tab.activated,
+html.ytm-theme-light ytmusic-player-page yt-basic-tabs .tab.selected {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-player-page .tab-indicator,
+html.ytm-theme-light ytmusic-player-page yt-basic-tabs .tab.activated::after,
+html.ytm-theme-light ytmusic-player-page tp-yt-paper-tabs #selection-bar {
+  background-color: #111827 !important;
+}
+
+/* 3e. Artist/playlist header */
+html.ytm-theme-light ytmusic-immersive-header-renderer yt-formatted-string.title {
+  color: #111827 !important;
+}
+
+/* Secondary header text ("2.71M monthly audience") — less specific than the
+   title, Subscribe and Shuffle/Mix rules, so they still win */
+html.ytm-theme-light ytmusic-immersive-header-renderer yt-formatted-string,
+html.ytm-theme-light ytmusic-immersive-header-renderer .metadata,
+html.ytm-theme-light ytmusic-immersive-header-renderer .description {
+  color: #4b5563 !important;
+}
+
+/* 3g. Shuffle and Mix: black fill, white labels, Subscribe's rounded shape */
+html.ytm-theme-light ytmusic-immersive-header-renderer yt-button-renderer button,
+html.ytm-theme-light ytmusic-immersive-header-renderer yt-button-renderer yt-button-shape {
+  background-color: #030712 !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+}
+
+html.ytm-theme-light ytmusic-immersive-header-renderer yt-button-renderer .ytAttributedStringHost,
+html.ytm-theme-light ytmusic-immersive-header-renderer yt-button-renderer yt-icon,
+html.ytm-theme-light ytmusic-immersive-header-renderer yt-button-renderer path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* The header ⋮ is a menu-renderer, not a button-renderer: bare icon, no fill */
+html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-menu-renderer button,
+html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-menu-renderer yt-button-shape,
+html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-menu-renderer yt-touch-feedback-shape {
+  background-color: transparent !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-menu-renderer .ytAttributedStringHost,
+html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-menu-renderer yt-icon,
+html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-menu-renderer path {
+  color: #111827 !important;
+  fill: #111827 !important;
+}
+
+/* After the ⋮ rule: Subscribe keeps YouTube's own outline */
+html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-subscribe-button-renderer button,
+html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-subscribe-button-renderer yt-button-shape {
+  background-color: transparent !important;
+}
+
+/* 3f. Explore grid index numbers (1-20) */
+html.ytm-theme-light ytmusic-custom-index-column-renderer yt-formatted-string,
+html.ytm-theme-light ytmusic-custom-index-column-renderer {
   color: #111827 !important;
 }
 

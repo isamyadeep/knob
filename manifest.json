@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Knob – Light Mode for YouTube Music",
-  "version": "0.1.0.1",
-  "version_name": "0.1.0-alpha",
+  "version": "0.1.0.2",
+  "version_name": "0.1.0-alpha.2",
   "description": "Adds a clean, custom light theme to YouTube Music with tactile On, System, and Off controls.",
   "icons": {
     "16": "icons/icon16.png",
