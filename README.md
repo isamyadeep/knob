@@ -117,6 +117,6 @@ Refer to the full text of the [GNU General Public License v3.0](https://www.gnu.
 
 *Crafted with assistance from [Claude Code](https://claude.ai).*
 
-Inspired by **Dieter Rams'** design principles and the 3-way knob created by [1042 Studio](https://www.1042.studio/) at [drams.framer.website](https://drams.framer.website/).
+*The knob design is heavily inspired by [1042 Studio's](https://www.1042.studio/) 3-way knob ([drams.framer.website](https://drams.framer.website/)) and Dieter Rams' design principles, recreated natively in HTML/CSS as a 3-state toggle UI for YouTube Music.*
 
 *Disclaimer: Not affiliated with, endorsed by, or connected to Google LLC or YouTube.*
