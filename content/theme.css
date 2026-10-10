@@ -236,6 +236,27 @@ html.ytm-theme-light ytmusic-chip-cloud-chip-renderer .gradient-box {
   background: none !important;
 }
 
+/* Queue header Save: black fill, white label and icon, like Shuffle/Mix. It is
+   a chip, same markup as the All/Discover/Familiar filters, so it is picked by
+   title. After the rule above: this chip has its own fill to restore. */
+html.ytm-theme-light ytmusic-queue-header-renderer a[title="Save"],
+html.ytm-theme-light ytmusic-queue-header-renderer a[title="Save"] .gradient-box {
+  background: #030712 !important;
+  border-radius: 999px !important;
+}
+
+html.ytm-theme-light ytmusic-queue-header-renderer a[title="Save"] yt-icon,
+html.ytm-theme-light ytmusic-queue-header-renderer a[title="Save"] path,
+html.ytm-theme-light ytmusic-queue-header-renderer a[title="Save"] yt-formatted-string {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+html.ytm-theme-light ytmusic-queue-header-renderer a[title="Save"]:hover,
+html.ytm-theme-light ytmusic-queue-header-renderer a[title="Save"]:hover .gradient-box {
+  background: #1f2937 !important;
+}
+
 html.ytm-theme-light ytmusic-search-box input,
 html.ytm-theme-light ytmusic-search-box input::placeholder {
   color: #6b7280;
@@ -355,6 +376,19 @@ html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-menu-renderer
 /* After the rule above: album cards match both, so the later one wins */
 html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer path,
 html.ytm-theme-light ytmusic-item-thumbnail-overlay-renderer ytmusic-menu-renderer yt-icon {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Album cards get a dark gradient on hover, so their overlay icons are light.
+   The overlay only exists on hover, so no :hover needed here. Carries one more
+   class than the dark row rules above so it wins. */
+html.ytm-theme-light ytmusic-two-row-item-renderer ytmusic-item-thumbnail-overlay-renderer path,
+html.ytm-theme-light ytmusic-two-row-item-renderer ytmusic-item-thumbnail-overlay-renderer yt-icon,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-item-thumbnail-overlay-renderer path,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer ytmusic-item-thumbnail-overlay-renderer yt-icon,
+html.ytm-theme-light ytmusic-player-queue-item ytmusic-item-thumbnail-overlay-renderer path,
+html.ytm-theme-light ytmusic-player-queue-item ytmusic-item-thumbnail-overlay-renderer yt-icon {
   fill: #ffffff !important;
   color: #ffffff !important;
 }
@@ -510,6 +544,61 @@ html.ytm-theme-light ytmusic-player-bar .right-controls-buttons {
   background-color: transparent !important;
 }
 
+/* The bar is ytmusic-miniplayer, not ytmusic-player-bar. Its title and icons
+   ship as #f1f1f1, invisible on the white bar. */
+html.ytm-theme-light ytmusic-miniplayer,
+html.ytm-theme-light ytmusic-miniplayer .ytmusicTrackInfoTitle,
+html.ytm-theme-light ytmusic-miniplayer .ytAttributedStringHost,
+html.ytm-theme-light ytmusic-miniplayer .ytSpecButtonShapeNextHost,
+html.ytm-theme-light ytmusic-miniplayer .ytSpecButtonShapeNextButtonTextContent {
+  color: #111827 !important;
+  fill: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-miniplayer .ytmusicTrackInfoByline,
+html.ytm-theme-light ytmusic-miniplayer .ytmusicTrackInfoByline span,
+html.ytm-theme-light ytmusic-miniplayer .ytMusicMiniPlayerTimeInfo {
+  color: #6b7280 !important;
+}
+
+/* YouTube blurs these buttons (backdrop-filter 4px), which smears the icon on
+   a white bar. It also rides on child and pseudo elements, so cover those. */
+html.ytm-theme-light ytmusic-miniplayer *,
+html.ytm-theme-light ytmusic-miniplayer *::before,
+html.ytm-theme-light ytmusic-miniplayer *::after {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* YouTube gives light-mode icons a 1px drop-shadow to help them read. On a white
+   bar it just looks blurry. Dark mode keeps it. */
+html.ytm-theme-light ytmusic-miniplayer .ytSpecButtonShapeNextIcon {
+  filter: none !important;
+}
+
+/* Mute, menu and play/pause get a circle. Play/pause is picked by title because
+   every transport button shares the same classes. */
+html.ytm-theme-light ytmusic-miniplayer .ytMusicMiniPlayerMuteButton button,
+html.ytm-theme-light ytmusic-miniplayer .ytMusicMiniPlayerMenuButton button,
+html.ytm-theme-light ytmusic-miniplayer .ytmusicPlayerControlsMainControls button[title="Play"],
+html.ytm-theme-light ytmusic-miniplayer .ytmusicPlayerControlsMainControls button[title="Pause"],
+html.ytm-theme-light ytmusic-miniplayer .play-pause-button {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  background-image: none !important;
+  border-radius: 50% !important;
+}
+
+/* Like and dislike share one translucent pill */
+html.ytm-theme-light ytmusic-miniplayer .ytSegmentedLikeDislikeButtonViewModelSegmentedButtonsWrapper {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  border-radius: 999px !important;
+}
+
+html.ytm-theme-light ytmusic-miniplayer .ytSegmentedLikeDislikeButtonViewModelSegmentedButtonsWrapper button {
+  background-color: transparent !important;
+  border-radius: 999px !important;
+}
+
 /* "Autoplay" is an <iron-label>, not a formatted string */
 html.ytm-theme-light ytmusic-player-queue iron-label,
 html.ytm-theme-light ytmusic-toggle-button-renderer iron-label,
@@ -617,6 +706,164 @@ html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-menu-renderer pat
 html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-subscribe-button-renderer button,
 html.ytm-theme-light ytmusic-immersive-header-renderer ytmusic-subscribe-button-renderer yt-button-shape {
   background-color: transparent !important;
+}
+
+/* Playlist/album header: YouTube ships dark-theme colours, so the title and
+   artist link render white on our white page */
+html.ytm-theme-light ytmusic-responsive-header-renderer yt-formatted-string.title,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer yt-formatted-string.title,
+html.ytm-theme-light ytmusic-responsive-header-renderer a.yt-simple-endpoint,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer a.yt-simple-endpoint {
+  color: #111827 !important;
+}
+
+/* Header action buttons sit on the page, not on artwork: the bookmark ships
+   white-on-10%-white and the ⋮ ships white text, so both vanish. Give them the
+   same translucent circle as the miniplayer. */
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-toggle-button-renderer,
+html.ytm-theme-light ytmusic-responsive-header-renderer yt-icon-button {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  border-radius: 50% !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* The ring YouTube draws around these circles comes from the interaction
+   shape, not the button, so it needs its own rule. Its fill is solid black on
+   top of the tint, which is why these two looked darker than the miniplayer. */
+html.ytm-theme-light ytmusic-responsive-header-renderer yt-interaction .stroke,
+html.ytm-theme-light ytmusic-responsive-header-renderer yt-interaction .fill,
+html.ytm-theme-light ytmusic-responsive-header-renderer yt-icon-button .stroke,
+html.ytm-theme-light ytmusic-responsive-header-renderer yt-icon-button .fill,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-toggle-button-renderer .stroke,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-toggle-button-renderer .fill,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-menu-renderer .stroke,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-menu-renderer .fill {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+}
+
+/* The bookmark and ⋮ circles sit on the page, so they take the same tint as
+   the miniplayer buttons. After the play-button rule below, which is black. */
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-toggle-button-renderer yt-icon,
+html.ytm-theme-light ytmusic-responsive-header-renderer yt-icon-button,
+html.ytm-theme-light ytmusic-responsive-header-renderer yt-icon-button * {
+  color: #111827 !important;
+  fill: #111827 !important;
+}
+
+/* Play/pause: white glyph on a solid black circle */
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-play-button-renderer,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-play-button-renderer yt-button-shape,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-play-button-renderer button {
+  background-color: #030712 !important;
+  border-radius: 50% !important;
+}
+
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-play-button-renderer yt-icon,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-play-button-renderer path,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-play-button-renderer yt-icon * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* The row being played. YouTube tints it 10% white and draws the volume icon
+   in white, which vanishes on our white page. Icons on the thumbnail stay
+   light, since they sit on the album art. */
+html.ytm-theme-light ytmusic-responsive-list-item-renderer[play-button-state="playing"],
+html.ytm-theme-light ytmusic-player-queue-item[play-button-state="playing"] {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+html.ytm-theme-light ytmusic-responsive-list-item-renderer[play-button-state="playing"] yt-icon:not(ytmusic-item-thumbnail-overlay-renderer yt-icon),
+html.ytm-theme-light ytmusic-responsive-list-item-renderer[play-button-state="playing"] yt-icon:not(ytmusic-item-thumbnail-overlay-renderer yt-icon) path,
+html.ytm-theme-light ytmusic-player-queue-item[play-button-state="playing"] yt-icon:not(ytmusic-item-thumbnail-overlay-renderer yt-icon),
+html.ytm-theme-light ytmusic-player-queue-item[play-button-state="playing"] yt-icon:not(ytmusic-item-thumbnail-overlay-renderer yt-icon) path,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer[play-button-state="playing"] yt-icon.icon,
+html.ytm-theme-light ytmusic-player-queue-item[play-button-state="playing"] yt-icon.icon {
+  color: #111827 !important;
+  fill: #111827 !important;
+}
+
+/* Hover on that row must not wash the icon out, in either of its two states */
+html.ytm-theme-light ytmusic-responsive-list-item-renderer[play-button-state="playing"] yt-icon,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer[play-button-state="playing"] yt-icon *,
+html.ytm-theme-light ytmusic-responsive-list-item-renderer[play-button-state="playing"] path {
+  color: #111827 !important;
+  fill: #111827 !important;
+}
+
+/* Hovering any other row reveals its play icon where the track number was, on
+   the white page, so it stays dark like the resting state */
+html.ytm-theme-light ytmusic-responsive-list-item-renderer:hover yt-icon:not(ytmusic-item-thumbnail-overlay-renderer yt-icon),
+html.ytm-theme-light ytmusic-responsive-list-item-renderer:hover yt-icon:not(ytmusic-item-thumbnail-overlay-renderer yt-icon) path,
+html.ytm-theme-light ytmusic-player-queue-item:hover yt-icon:not(ytmusic-item-thumbnail-overlay-renderer yt-icon),
+html.ytm-theme-light ytmusic-player-queue-item:hover yt-icon:not(ytmusic-item-thumbnail-overlay-renderer yt-icon) path {
+  color: #111827 !important;
+  fill: #111827 !important;
+}
+
+/* The header ⋮ is a menu-renderer under the responsive header, which the
+   immersive-header rules above never matched */
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-menu-renderer button,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-menu-renderer yt-button-shape,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-menu-renderer yt-touch-feedback-shape {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  border-radius: 50% !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-menu-renderer .ytAttributedStringHost,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-menu-renderer yt-icon,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-menu-renderer path {
+  color: #111827 !important;
+  fill: #111827 !important;
+}
+
+/* Hovering header or floating artwork lays a dark gradient over it, so the
+   icons on top turn light, same as the small album cards */
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-item-thumbnail-overlay-renderer yt-icon,
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-item-thumbnail-overlay-renderer path,
+html.ytm-theme-light ytmusic-player-page ytmusic-item-thumbnail-overlay-renderer yt-icon,
+html.ytm-theme-light ytmusic-player-page ytmusic-item-thumbnail-overlay-renderer path,
+html.ytm-theme-light ytmusic-miniplayer ytmusic-item-thumbnail-overlay-renderer yt-icon,
+html.ytm-theme-light ytmusic-miniplayer ytmusic-item-thumbnail-overlay-renderer path {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+html.ytm-theme-light ytmusic-responsive-header-renderer ytmusic-toggle-button-renderer yt-icon,
+html.ytm-theme-light ytmusic-responsive-header-renderer yt-icon-button,
+html.ytm-theme-light ytmusic-responsive-header-renderer yt-icon-button * {
+  color: #111827 !important;
+  fill: #111827 !important;
+}
+
+/* "Auto-play" toggle in the miniplayer */
+html.ytm-theme-light ytmusic-miniplayer iron-label {
+  color: #111827 !important;
+}
+
+/* Video controls sit on the video, which is dark whatever the theme. Restore
+   YouTube's own light icons after the wide rule above turns them dark. */
+html.ytm-theme-light ytmusic-player-page .html5-video-player yt-icon,
+html.ytm-theme-light ytmusic-player-page .html5-video-player path,
+html.ytm-theme-light ytmusic-player-page .ytp- button,
+html.ytm-theme-light ytmusic-player-page .ytp- .ytp-button {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* The "Saved to liked music" toast. YouTube paints it black in both themes, so
+   it keeps light text. The action button is left alone to stay blue. */
+html.ytm-theme-light tp-yt-paper-toast,
+html.ytm-theme-light tp-yt-paper-toast yt-formatted-string,
+html.ytm-theme-light tp-yt-paper-toast yt-icon,
+html.ytm-theme-light tp-yt-paper-toast path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 /* 3f. Explore grid index numbers (1-20) */
