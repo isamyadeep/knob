@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knob - Light Mode for YouTube Music</title>
+  <meta name="description"
+    content="A tactile three-position knob for YouTube Music. Switch between On, System and Off. No account, no tracking, no network requests.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F4F4F4">
+  <link rel="icon" href="icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@300..600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html">
+        <img src="icon48.png" alt="" width="22" height="22">
+        <span>Knob</span>
+      </a>
+      <nav class="nav">
+        <a href="#modes" data-optional>Modes</a>
+        <a href="#install">Install</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="https://github.com/isamyadeep/knob">Github</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap">
+        <!-- <p class="eyebrow">YouTube Music &middot; Light Mode</p> -->
+
+        <h1>YouTube Music is dark by default. Knob brings the light.</h1>
+
+        <p class="lede">YouTube Music's own appearance setting offers exactly one option: Dark. Knob replaces that with
+          a three-position rotary control, and a soft neutral light theme made to be looked at for hours.</p>
+
+        <div class="cta-row">
+          <a class="btn btn--primary" href="#install">Get Knob</a>
+          <a class="btn btn--secondary" href="https://github.com/isamyadeep/knob/releases" rel="noopener">Download
+            release</a>
+        </div>
+
+        <!-- <ul class="badges">
+          <li class="badge">Edge</li>
+          <li class="badge">Chrome</li>
+          <li class="badge">Firefox</li>
+          <li class="badge">GPL 3.0</li>
+          <li class="badge">Free &amp; open source</li>
+        </ul> -->
+
+        <div class="knob" id="heroKnob" data-mode="light">
+
+          <button class="knob__dial" id="dial" type="button" role="slider" aria-label="Theme mode" aria-valuemin="1"
+            aria-valuemax="3" aria-valuenow="2" aria-valuetext="On">
+            <span class="knob__surface"></span>
+            <span class="knob__rotor"><span class="knob__indicator"></span></span>
+          </button>
+
+          <div class="knob__labels" aria-hidden="true">
+            <span class="knob__label" data-angle="0">On</span>
+            <span class="knob__label" data-angle="45">System</span>
+            <span class="knob__label" data-angle="90">Off</span>
+          </div>
+        </div>
+
+        <p class="knob__caption" id="knobCaption" aria-live="polite">Turn it, or use the arrow keys.</p>
+
+        <!-- <div class="compare">
+          <figure>
+            IMAGE SLOT: "Off" state screenshot, 4:3
+            <div class="frame"><span class="frame__label">Off: native dark</span></div>
+            <figcaption>Off</figcaption>
+          </figure>
+          <figure>
+            IMAGE SLOT: "On" state screenshot, 4:3
+            <div class="frame"><span class="frame__label">On: Knob light</span></div>
+            <figcaption>On</figcaption>
+          </figure>
+        </div> -->
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <ul class="stats">
+          <li class="stat">
+            <p class="stat__value">0</p>
+            <p class="stat__label">Network requests. Knob never talks to a server, not for analytics, not for
+              updates, not at all.</p>
+          </li>
+          <li class="stat">
+            <p class="stat__value">1</p>
+            <p class="stat__label">Stored value: the position you chose. No identifiers, no history, no telemetry of
+              any
+              kind.</p>
+          </li>
+          <li class="stat">
+            <p class="stat__value">3</p>
+            <p class="stat__label">Positions on the dial. Click to advance, or arrow through them from the keyboard.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="modes">
+      <div class="wrap">
+        <h2>Three positions, nothing hidden behind a submenu.</h2>
+        <div class="rows">
+          <div class="row">
+            <div class="row__key">On</div>
+            <div class="row__val">Forces the light theme continuously, regardless of your system setting.</div>
+          </div>
+          <div class="row">
+            <div class="row__key">System</div>
+            <div class="row__val">Follows your operating system, handing the page back to native dark when your
+              machine
+              is dark.</div>
+          </div>
+          <div class="row">
+            <div class="row__key">Off</div>
+            <div class="row__val">Steps out of the way completely. YouTube Music behaves exactly as it did before
+              you
+              installed Knob.</div>
+          </div>
+        </div>
+        <p class="lede">Click the dial to advance through the three. Use the arrow keys when it has focus. Changes
+          apply
+          instantly across every open tab, with no reload.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Built for people who insist on light mode.</h2>
+        <p class="lede">Some of us just prefer light mode. That is not a strange thing to want, but YouTube Music
+          only
+          offers dark, so the entire app fights you. Knob puts the palette back where you want it: a cool grey
+          rather
+          than harsh white, with the text as the darkest thing on screen.</p>
+
+        <p class="lede">No inversion, no washed-out text, no brightness slider. Just a readable light theme that you
+          set
+          once and forget about.</p>
+
+        <!-- IMAGE SLOT: light theme screenshot, 16:9 -->
+
+        <div class="frame frame--wide">
+          <img src="knob-light-mode-on.webp" alt="Screenshot: light theme on the library page"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+    </section>
+    </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="wrap">
+        <h2>Pick your browser.</h2>
+
+        <div class="cards">
+          <div class="card">
+            <div class="card__head">
+              <h3>Microsoft Edge</h3>
+              <span class="card__status">Store listing pending</span>
+            </div>
+            <p>Installs directly from the Edge Add-ons store once the listing goes live.</p>
+          </div>
+
+          <div class="card">
+            <div class="card__head">
+              <h3>Firefox</h3>
+              <span class="card__status">Store listing pending</span>
+            </div>
+            <p>Installs directly from the Firefox Add-ons marketplace once the listing goes live. Requires Firefox
+              115
+              or newer.</p>
+          </div>
+
+          <div class="card">
+            <div class="card__head">
+              <h3>Google Chrome</h3>
+              <span class="card__status">Manual install</span>
+            </div>
+            <ol class="steps">
+              <li>Download the latest zip from the <a href="https://github.com/isamyadeep/knob/releases"
+                  rel="noopener">Releases page</a>, or clone the repository.</li>
+              <li>Unzip it into a permanent directory, for example <code>~/knob-extension</code>.</li>
+              <li>Open <code>chrome://extensions</code> and enable <strong>Developer mode</strong>.</li>
+              <li>Click <strong>Load unpacked</strong>, then select the folder containing
+                <code>manifest.json</code>.
+              </li>
+              <li>Pin Knob to your toolbar, open <a href="https://music.youtube.com"
+                  rel="noopener">music.youtube.com</a>, and click the icon to turn the dial.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Questions</h2>
+
+        <div class="faq">
+          <details>
+            <summary>Does this use my account or send anything anywhere?</summary>
+            <div class="faq__body">
+              <p>No. Knob makes zero network requests. Your mode is saved through your browser's own storage API,
+                inside
+                your browser profile. If your browser account syncs settings, that single value may travel with it,
+                exactly like any other preference.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Why did a surface turn dark again?</summary>
+            <div class="faq__body">
+              <p>YouTube Music changes its internal markup often. When it does, a menu, the queue panel, or a
+                settings
+                dialog can slip back to dark while the rest of the page stays light. If you spot one, please <a
+                  href="https://github.com/isamyadeep/knob/issues/new" rel="noopener">open an issue</a> describing
+                where
+                it happens. That is the fastest route to a fix.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Can I turn it off completely?</summary>
+            <div class="faq__body">
+              <p>Yes. Set the dial to Off, or remove the extension. YouTube Music returns to its own default
+                behaviour
+                immediately.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>What permissions does it ask for?</summary>
+            <div class="faq__body">
+              <p>Two. <code>storage</code>, so Knob remembers which position you left the dial in, and access to
+                <code>music.youtube.com</code>, so there is a page to apply the theme to. That is the whole list.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Is this affiliated with YouTube or Google?</summary>
+            <div class="faq__body">
+              <p>No. Knob is an independent open-source project, not affiliated with, endorsed by, or connected to
+                Google LLC or YouTube. </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="note">
+          <p><strong>No server, no tracking.</strong> Knob stores one value, the position you chose, using your
+            browser's own storage. It holds no identifiers, keeps no history, and ships no analytics or third-party
+            code.</p>
+          <p><a href="privacy.html">Read the full privacy policy.</a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__links">
+        <a href="https://github.com/isamyadeep/knob" rel="noopener">Source</a>
+        <a href="https://github.com/isamyadeep/knob/releases" rel="noopener">Releases</a>
+        <a href="https://github.com/isamyadeep/knob/issues/new" rel="noopener">Report an issue</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+      <p class="footer__note">Not affiliated with, endorsed by, or connected to Google LLC or YouTube.
+        </br>Free and open source under the GPL-3.0.
+        </br>
+        </br> Made by <a href="https://samyadeep.com">Samyadeep</a> with <span
+          style="color: #ea541e;">&hearts;</span></br>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var knob = document.getElementById('heroKnob');
+      var dial = document.getElementById('dial');
+      var caption = document.getElementById('knobCaption');
+      if (!knob || !dial || !caption) return;
+
+      var MODES = [
+        { id: 'light', angle: '0deg', label: 'On', note: 'Light theme, always.' },
+        { id: 'system', angle: '45deg', label: 'System', note: 'Follows your OS preference.' },
+        { id: 'off', angle: '90deg', label: 'Off', note: 'YouTube Music, untouched.' }
+      ];
+
+      var i = 1;
+
+      function render() {
+        var m = MODES[i];
+        knob.dataset.mode = m.id;
+        knob.style.setProperty('--angle', m.angle);
+        dial.setAttribute('aria-valuenow', String(i + 1));
+        dial.setAttribute('aria-valuetext', m.label);
+        caption.innerHTML = '<b>' + m.label + '</b> &middot; ' + m.note;
+      }
+
+      dial.addEventListener('click', function () {
+        i = (i + 1) % MODES.length;
+        render();
+      });
+
+      dial.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+          i = (i + 1) % MODES.length;
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+          i = (i + MODES.length - 1) % MODES.length;
+        } else if (e.key === 'Home') {
+          i = 0;
+        } else if (e.key === 'End') {
+          i = MODES.length - 1;
+        } else {
+          return;
+        }
+        e.preventDefault();
+        render();
+      });
+
+      render();
+    })();
+  </script>
+
+</body>
+
+</html>

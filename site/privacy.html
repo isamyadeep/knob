@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - Knob</title>
+  <meta name="description" content="Knob stores one setting, makes no network requests, and collects no personal data.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F4F4F4">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@300..600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html">
+        <img src="icon48.png" alt="" width="22" height="22">
+        <span>Knob</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html#modes" data-optional>Modes</a>
+        <a href="index.html#install">Install</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="https://github.com/isamyadeep/knob">Github</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap prose">
+
+    <h1>Privacy Policy</h1>
+    <p class="lede">Knob, Light Mode for YouTube Music. Last updated 8 October 2026.</p>
+
+    <h2>The short version</h2>
+    <p>Knob does not collect, transmit, sell, or share personal data. It makes zero network requests. There is no
+      server, no account, and no analytics.</p>
+
+    <h2>What Knob stores</h2>
+    <p>One value: the position you selected on the dial.</p>
+    <ul>
+      <li><code>light</code> when you pick <strong>On</strong></li>
+      <li><code>system</code> when you pick <strong>System</strong></li>
+      <li><code>off</code> when you pick <strong>Off</strong></li>
+    </ul>
+    <p>There are no user identifiers, no browsing history, no listening activity, and no telemetry.</p>
+
+    <h2>Where that value is stored</h2>
+    <p>Your position is saved with the standard WebExtension storage API, <code>chrome.storage.sync</code> or
+      <code>browser.storage.sync</code>. That means:
+    </p>
+    <ul>
+      <li>It is held locally inside your browser profile.</li>
+      <li>If you are signed in to a browser account on Chrome, Edge, or Firefox, your browser vendor may sync this
+        single setting across your signed-in devices as part of normal profile sync. That sync is run by the browser,
+        not by us, and we never receive a copy.</li>
+    </ul>
+    <p>Knob also mirrors the same value into local storage under the key <code>__knob</code>. That lets the theme be
+      applied before the page paints, which is what prevents the dark-mode flash when you open YouTube Music.</p>
+
+    <h2>Permissions and why each is requested</h2>
+    <div class="rows">
+      <div class="row">
+        <div class="row__key">storage</div>
+        <div class="row__val">Remembers the position you chose so it survives a browser restart. Nothing else is written
+          to storage.</div>
+      </div>
+      <div class="row">
+        <div class="row__key">music.youtube.com</div>
+        <div class="row__val">Lets the theme stylesheet and theme script run on YouTube Music so the light theme can be
+          applied. Knob does not read, transmit, or store the content of those pages.</div>
+      </div>
+    </div>
+    <p>Knob requests no other permissions and has no host access to any site other than <code>music.youtube.com</code>.
+    </p>
+
+    <h2>What Knob does not do</h2>
+    <ul>
+      <li>No collection of personal information.</li>
+      <li>No reading, access, or recording of your browsing history.</li>
+      <li>No remote server requests. The extension makes no network calls of any kind.</li>
+      <li>No advertising, tracking scripts, or third-party code.</li>
+      <li>No execution of remotely hosted code. Every asset ships inside the extension package.</li>
+    </ul>
+
+    <h2>Data sold or shared</h2>
+    <p>None. No personal data is sold, shared, or transferred to any third party, because none is collected in the first
+      place.</p>
+
+    <h2>Children</h2>
+    <p>Knob is a theme for a music service and is not directed at children. It collects no data from anyone, of any age.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the date at the top of the page changes with it, and the new version ships with the
+      extension update that introduces it.</p>
+
+    <h2>Contact</h2>
+    <p>Questions and reports go to the project's issue tracker on GitHub, where they are public and answered in the
+      open.</p>
+    <p><a href="https://github.com/isamyadeep/knob/issues/new" rel="noopener">Open an issue on GitHub</a></p>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="https://github.com/isamyadeep/knob" rel="noopener">Source</a>
+        <a href="https://github.com/isamyadeep/knob/issues/new" rel="noopener">Report an issue</a>
+      </div>
+      <p class="footer__note">Not affiliated with, endorsed by, or connected to Google LLC or YouTube.
+        </br>Free and open source under the GPL-3.0.
+        </br>
+        </br> Made by <a href="https://samyadeep.com">Samyadeep</a> with <span
+          style="color: #ea541e;">&hearts;</span></br>
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
